@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projetos - Kelvin Peres</title>
+
+  <link rel="stylesheet" href="main.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=VT323&display=swap" rel="stylesheet">
+
+  <style>
+    /* Ajuste do container da máquina */
+    .maquina {
+      position: relative;
+      display: block;
+      margin: 40px auto;
+      text-align: center;
+      width: fit-content;
+    }
+
+    .maquina img {
+      width: 950px;
+      display: block;
+    }
+
+    /* A TELA - Contêiner principal que segura o Display E os Botões */
+    .tela {
+      position: absolute;
+      /* ================= MOVA O CONJUNTO INTEIRO AQUI ================= */
+      top: 202px;
+      left: 240px;
+      /* Modifique aqui para ir para direita ou esquerda */
+      width: 451px;
+      /* ============================================================== */
+      transform: none;
+      /* ← Liberdade total! */
+      background: transparent;
+      padding: 74px;
+      box-sizing: border-box;
+    }
+
+    /* O display de LCD Laranjinha Itaú realista */
+    #display {
+      background: #FFFFFF;
+      /* Fundo Branco */
+      color: #FF6200;
+      /* Laranja Itaú */
+      padding: 8px;
+      margin-bottom: 21px;
+      height: 381px;
+      font-size: 27px;
+      font-weight: 400;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      border: 4px solid #DFDFDF;
+      border-radius: 8px;
+      box-shadow: inset 0 2px 8px rgba(0, 0, 0, 0.15);
+      /* Sombra interna sutil */
+      line-height: 1.2;
+    }
+
+    /* Piscar "Processando" */
+    @keyframes blink {
+
+      0%,
+      100% {
+        opacity: 1;
+      }
+
+      50% {
+        opacity: 0;
+      }
+    }
+
+    .blink {
+      animation: blink 1s infinite;
+    }
+
+    /* O TECLADO (Camada invisível sobre os botões reais da foto) */
+    .teclado {
+      display: grid !important;
+      grid-template-columns: repeat(3, 1fr);
+      gap: -3px;
+      /* ← Ajuste isso para afastar os botões de lado ou de cima-baixo */
+      margin-top: 7px;
+      /* ← AUMENTE ESTE NÚMERO PARA DESCER TODOS OS BOTÕES JUNTOS */
+
+      /* ======= DEIXE O TECLADO MAIS LARGO AQUI ======= */
+      width: 118%;
+      /* ← Aumente para 120%, 130%, etc para alargar apenas os botões */
+      transform: translateX(-8.5%);
+      /* ← Se o teclado ficar torto pra direita, aumente este número negativo (ex: -10%) para centralizar */
+    }
+
+    .teclado button {
+      width: 100%;
+      padding: 15px 0;
+      background: #1a1a1a;
+      /* Fundo Preto Escuro */
+      border: 2px solid #000;
+      color: #ffffff;
+      /* NÚMEROS DIVULGADOS EM BRANCO */
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 26px;
+      /* Tamanho da fonte grande */
+      font-weight: bold;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      box-shadow: 0 4px #000, inset 0 1px rgba(255, 255, 255, 0.1);
+      /* Efeito de botão físico saltado */
+      transition: 0.1s;
+    }
+
+    .teclado button:hover {
+      background: #2a2a2a;
+      /* Um pouquinho mais claro ao passar o mouse */
+    }
+
+    .teclado button:active {
+      transform: translateY(4px);
+      /* Botão sendo afundado! */
+      box-shadow: 0 0px #000;
+      /* Sombra some ao apertar */
+    }
+
+    /* Botão Cancelar (Vermelho Físico) */
+    .teclado button:nth-child(10) {
+      background: #B71C1C;
+      box-shadow: 0 4px #7F0000, inset 0 1px rgba(255, 255, 255, 0.2);
+    }
+
+    .teclado button:nth-child(10):hover {
+      background: #E53935;
+    }
+
+    .teclado button:nth-child(10):active {
+      transform: translateY(4px);
+      box-shadow: 0 0px #7F0000;
+    }
+
+    /* Botão ENTER (Verde Físico) */
+    .teclado button:last-child {
+      background: #1B5E20;
+      box-shadow: 0 4px #003300, inset 0 1px rgba(255, 255, 255, 0.2);
+    }
+
+    .teclado button:last-child:hover {
+      background: #43A047;
+    }
+
+    .teclado button:last-child:active {
+      transform: translateY(4px);
+      box-shadow: 0 0px #003300;
+    }
+
+    #status {
+      margin-top: 10px;
+      font-size: 14px;
+      font-weight: bold;
+      color: white;
+      text-shadow: 1px 1px 2px black;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- MENU LATERAL FLUTUANTE -->
+  <nav class="floating-menu">
+    <a href="index.html#inicio" tooltip="Início"><i class="fa-solid fa-house"></i></a>
+    <a href="index.html#sobre" tooltip="Sobre mim"><i class="fa-solid fa-user"></i></a>
+    <a href="index.html#contato" tooltip="Contato"><i class="fa-solid fa-envelope"></i></a>
+    <a href="projetos.html" class="active" tooltip="Projetos"><i class="fa-solid fa-briefcase"></i></a>
+  </nav>
+
+  <main class="pagina">
+    <h1>Maquininha de Cartão</h1>
+    <p>Conheça a melhor solução para pagamentos no seu negócio 💳</p>
+
+    <div class="maquina">
+      <img src="imagens/laranjinha-mais-maquininha-de-cartao-david-tech.webp" alt="Maquininha Laranjinha">
+
+      <div class="tela">
+        <div id="display">
+          <div style="font-size:24px">Bem-vindo!</div>
+          <div style="font-size:16px; margin-top:10px">Insira o cartão</div>
+        </div>
+
+        <div class="teclado">
+          <button onclick="digitar(1)">1</button>
+          <button onclick="digitar(2)">2</button>
+          <button onclick="digitar(3)">3</button>
+          <button onclick="digitar(4)">4</button>
+          <button onclick="digitar(5)">5</button>
+          <button onclick="digitar(6)">6</button>
+          <button onclick="digitar(7)">7</button>
+          <button onclick="digitar(8)">8</button>
+          <button onclick="digitar(9)">9</button>
+          <button onclick="limpar()">Cancel</button>
+          <button onclick="digitar(0)">0</button>
+          <button onclick="pagar()">Enter</button>
+        </div>
+
+        <p id="status"></p>
+      </div>
+    </div>
+  </main>
+
+  <script src="script.js"></script>
+
+</body>
+
+</html>

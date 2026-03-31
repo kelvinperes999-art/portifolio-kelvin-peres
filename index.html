@@ -11,81 +11,101 @@
 
 <body>
 
-<!-- SIDEBAR -->
-<div class="sidebar">
-  <div class="perfil">
-    <img src="imagens/fundo.png" class="foto" alt="Kelvin Peres">
-
-    <h2 class="nome">
-      <span id="digitando"></span>
-    </h2>
-  </div>
-
-  <nav class="menu">
-    <a href="#inicio">Início</a>
-    <a href="#sobre">Sobre mim</a>
-    <a href="#servicos">O que eu faço</a>
-    <a href="#contato">Contato</a>
-  </nav>
-</div>
+<!-- MENU LATERAL FLUTUANTE -->
+<nav class="floating-menu">
+  <a href="index.html#inicio" tooltip="Início"><i class="fa-solid fa-house"></i></a>
+  <a href="index.html#sobre" tooltip="Sobre mim"><i class="fa-solid fa-user"></i></a>
+  <a href="index.html#contato" tooltip="Contato"><i class="fa-solid fa-envelope"></i></a>
+  <a href="projetos.html" tooltip="Projetos"><i class="fa-solid fa-briefcase"></i></a>
+</nav>
 
 <!-- CONTEÚDO -->
-<main>
 <main class="container">
 <section id="inicio" class="hero">
-  <h1>Desenvolvedor Web</h1>
-  <p>Criando sites modernos e profissionais</p>
-</section>
-
-<section id="sobre">
-  <h2>Sobre mim</h2>
-  <p>Sou desenvolvedor focado em HTML, CSS e JavaScript, apaixonado por criar interfaces modernas e funcionais.</p>
-</section>
-
-<section id="servicos">
-  <h2>O que eu faço</h2>
-
-  <div class="card">
-    <h3>Criação de Sites</h3>
-    <p>Desenvolvimento de sites completos e personalizados.</p>
-  </div>
-  
-  <div class="card">
-    <h3>Design Responsivo</h3>
-    <p>Sites que funcionam perfeitamente em celulares, tablets e computadores.</p>
-  </div>
-  
-  <div class="card">
-    <h3>Interfaces Modernas</h3>
-    <p>Design focado na experiência do usuário com efeitos visuais incríveis.</p>
+  <div class="hero-content">
+    <div class="perfil-hero">
+      <img src="imagens/fundo.png" class="foto-hero" alt="Kelvin Peres">
+      <h2 class="nome-hero">Olá, eu sou <span id="digitando"></span></h2>
+    </div>
+    
+    <h1 class="hero-titulo">Transformando <span class="highlight">Ideias</span> Em <br>Realidade Digital</h1>
+    <p class="hero-subtitulo">Em cada linha de código, trago vida às ideias, moldando experiências digitais cativantes que transcendem o ordinário e inspiram a conexão.</p>
+    
+    <div class="hero-botoes">
+      <a href="#projetos" class="btn-primario">Ver meus trabalhos</a>
+      <a href="#contato" class="btn-secundario">Fale comigo</a>
+    </div>
   </div>
 </section>
 
-<section id="contato">
-  <h2>Contato</h2>
+<section id="sobre" class="section-moderna">
+  <h2 class="section-title">Sobre Mim</h2>
+  <div class="sobre-conteudo">
+    <p class="sobre-texto">Sou Kelvin Peres, um desenvolvedor front-end focado em criar experiências digitais incríveis. Com um olhar detalhista e paixão por tecnologia, transformo designs complexos em sites leves, rápidos e dinâmicos. Minha jornada no desenvolvimento web é guiada pelo desejo de construir coisas que as pessoas não só usem, mas adorem usar.</p>
+    <div class="stats">
+      <div class="stat-item"><span class="highlight">3+</span><br>Linguagens Dominadas</div>
+      <div class="stat-item"><span class="highlight">10+</span><br>Projetos Pessoais</div>
+      <div class="stat-item"><span class="highlight">100%</span><br>Foco em Qualidade</div>
+    </div>
+  </div>
+</section>
 
-  <p>Email: <strong>kelvinperes99@hotmail.com</strong></p>
-  <p>
-  <a href="https://wa.me/5511974257887" 
-     target="_blank" 
-     rel="noopener noreferrer"
-     class="link-whatsapp">
+<section id="servicos" class="section-moderna">
+  <h2 class="section-title">Meus Serviços</h2>
+  <div class="cards">
+    <div class="card card-servico">
+      <i class="fa-solid fa-code icon-highlight"></i>
+      <h3>Desenvolvimento Web</h3>
+      <p>Criação de sites dinâmicos e sistemas web responsivos utilizando as melhores práticas com HTML5, CSS3 e JavaScript Moderno.</p>
+    </div>
+    <div class="card card-servico">
+      <i class="fa-solid fa-mobile-screen icon-highlight"></i>
+      <h3>Design Responsivo</h3>
+      <p>Interfaces projetadas para se adaptar perfeitamente a qualquer dispositivo, desde celulares até monitores ultrawide.</p>
+    </div>
+    <div class="card card-servico">
+      <i class="fa-solid fa-wand-magic-sparkles icon-highlight"></i>
+      <h3>UI/UX Interativo</h3>
+      <p>Criação de botões, popups, animações e efeitos front-end imersivos que entregam uma experiência premium ao usuário.</p>
+    </div>
+  </div>
+</section>
 
-    <i class="fa-brands fa-whatsapp"></i>
+<section id="projeto" class="section-moderna">
+  <h2 class="section-title">Meus Trabalhos</h2>
+  <p class="section-subtitle">Aqui está um destaque do que construí recentemente.</p>
 
-  </a>
-</p>
-
-  <p>
-    <a href="https://www.linkedin.com/in/kelvin-peres-32508433b/" 
-       target="_blank" 
-       rel="noopener noreferrer" 
-       class="link-linkedin">
-
-      <i class="fa-brands fa-linkedin"></i>
-      Kelvin Peres
+  <div class="cards projetos-grid">
+    <a href="projetos.html" class="card projeto-card">
+      <div class="projeto-img-wrapper">
+         <img src="imagens/laranjinha-mais-maquininha-de-cartao-david-tech.webp" alt="Sistema Laranjinha">
+      </div>
+      <div class="projeto-info">
+        <h3>Sistema POS Maquininha PIX</h3>
+        <p>Um simulador hiper-realista de maquininha de cartão integrado com geração de <strong>QR Code PIX</strong> oficial em tempo real. Possui design de LCD, efeitos sonoros (Web Audio) e validações robustas em JavaScript.</p>
+        <span class="btn-sm">Acessar Sistema <i class="fa-solid fa-arrow-right"></i></span>
+      </div>
     </a>
-  </p>
+  </div>
+</section>
+
+<section id="contato" class="section-moderna">
+  <div class="contato-container">
+    <h2 class="section-title">Vamos conversar?</h2>
+    <p>Gostou do que viu ou tem um projeto em mente? Entre em contato agora mesmo!</p>
+    
+    <div class="social-links-modern">
+      <a href="mailto:kelvinperes99@hotmail.com" class="link-item" target="_blank">
+        <i class="fa-solid fa-envelope"></i> kelvinperes99@hotmail.com
+      </a>
+      <a href="https://wa.me/5511974257887" target="_blank" rel="noopener noreferrer" class="link-item link-whatsapp-modern">
+        <i class="fa-brands fa-whatsapp"></i> +55 11 97425-7887
+      </a>
+      <a href="https://www.linkedin.com/in/kelvin-peres-32508433b/" target="_blank" rel="noopener noreferrer" class="link-item link-linkedin-modern">
+        <i class="fa-brands fa-linkedin"></i> LinkedIn
+      </a>
+    </div>
+  </div>
 </section>
 
 </main>
